@@ -1,0 +1,106 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+camera:
+  - platform: mjpeg
+    name: Tongue
+    still_image_url: http://10.11.12.166:8123/api/hassio_ingress/04w-jhx2RRXDPxbruwacmn57x0CXQKPgKy2FosJsyCQ/picture/1/current/
+    mjpeg_url: http://10.11.12.166:8081
+
+  - platform: mjpeg
+    name: Front Door
+    still_image_url: http://10.11.12.166:8123/api/hassio_ingress/04w-jhx2RRXDPxbruwacmn57x0CXQKPgKy2FosJsyCQ/picture/1/current/
+    mjpeg_url: http://10.11.12.166:8082
+
+climate:
+  - platform: generic_thermostat
+    name: Fireplace
+    heater: script.fireplace_power
+    target_sensor: sensor.shellyht_e01963_temperature
+    min_temp: 60
+    max_temp: 80
+    target_temp: 72
+    
+
+light:
+  - platform: mqtt
+    name: "Aisle"
+    command_topic: "wallpi/relay/lights/aisle/command"
+    qos: 0
+    payload_on: "0"
+    payload_off: "1"
+    optimistic: false
+
+  - platform: mqtt
+    name: "Entry"
+    command_topic: "wallpi/relay/lights/entry/command"
+    qos: 0
+    payload_on: "0"
+    payload_off: "1"
+    optimistic: false
+
+  - platform: mqtt
+    name: "Porch"
+    command_topic: "wallpi/relay/lights/porch/command"
+    qos: 0
+    payload_on: "0"
+    payload_off: "1"
+    optimistic: false
+
+switch:
+  - platform: mqtt
+    name: Tank Heater
+    command_topic: "wallpi/relay/tank_heater/command"
+    payload_on: "0"
+    payload_off: "1"
+
+  - platform: mqtt
+    name: Water Heater
+    command_topic: "wallpi/relay/electric_water_heater/commandd"
+    payload_on: "0"
+    payload_off: "1"
+    
+sensor:
+  - platform: template
+    sensors:
+      watts_remaining:
+        friendly_name: "Watts Remaining"
+        unit_of_measurement: "w"
+        value_template: "{{ 3600 - (states('sensor.home_energy_meter_gen_5_electric_consumed_w_2')| float) }}"
+        
+  - platform: derivative
+    source: sensor.watts_remaining
+    round: 0
+    name: Watts Remaining Clean
+
+  - platform: derivative
+    source: sensor.speedtest_ping
+    round: 0
+    name: Ping Clean
+
+  - platform: derivative
+    source: sensor.shellyht_e00834_temperature
+    round: 0
+    name: Fridge Clean
+
+  - platform: derivative
+    source: sensor.shellyht_e01963_temperature
+    round: 0
+    name: Inside Clean
+
+  - platform: derivative
+    source: sensor.voltage
+    round: 1
+    name: Battery Voltage Clean
+    
+    
+

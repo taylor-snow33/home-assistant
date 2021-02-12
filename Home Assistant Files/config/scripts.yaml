@@ -1,0 +1,355 @@
+set_location:
+  alias: Set Location
+  sequence:
+  - service: homeassistant.set_location
+    data:
+      latitude: '{{ states.device_tracker.life360_taylor_snow.attributes.latitude
+        }}'
+      longitude: '{{ states.device_tracker.life360_taylor_snow.attributes.longitude
+        }}'
+  mode: single
+irv_power:
+  alias: iRV Power
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: power
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_mute:
+  alias: iRV Source
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: volume_mute
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_volume:
+  alias: iRV Volume Down
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: volume_down
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_volume_up:
+  alias: iRV Volume Up
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: up
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_radio:
+  alias: iRV Radio
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: source_radio
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_mute_2:
+  alias: iRV Mute
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: mute
+    entity_id: remote.broadlink_remote
+  mode: single
+irvsource:
+  alias: iRV Source
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: source
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_bluetooth:
+  alias: iRV Bluetooth
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: source_radio
+    entity_id: remote.broadlink_remote
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: volume_mute
+      num_repeats: 1
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_tv:
+  alias: iRV TV
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: source_radio
+    entity_id: remote.broadlink_remote
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: volume_mute
+      num_repeats: 5
+    entity_id: remote.broadlink_remote
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: volume_mute
+    entity_id: remote.broadlink_remote
+  mode: single
+fireplace_power:
+  alias: Fireplace Power
+  sequence:
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: power
+    entity_id: remote.broadlink_remote
+  mode: single
+fireplace_temp:
+  alias: Fireplace Temp
+  sequence:
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: temp
+    entity_id: remote.broadlink_remote
+  mode: single
+fireplace_heat:
+  alias: Fireplace Heat
+  sequence:
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: heat
+    entity_id: remote.broadlink_remote
+  mode: single
+fireplace_72_degrees_set:
+  alias: Fireplace 74 Degrees Set
+  sequence:
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: power
+    entity_id: remote.broadlink_remote
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: temp
+      num_repeats: 15
+    entity_id: remote.broadlink_remote
+  - service: remote.send_command
+    data:
+      device: fireplace
+      command: heat
+      num_repeats: 1
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_zone_3:
+  alias: iRV Zone 3
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: zone3
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_zone_2:
+  alias: iRV Zone 2
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: zone2
+    entity_id: remote.broadlink_remote
+  mode: single
+irv_zone_1:
+  alias: iRV Zone 1
+  sequence:
+  - service: remote.send_command
+    data:
+      device: iRV
+      command: zone1
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_back:
+  alias: Living Room TV Left
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: left
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_back_2:
+  alias: Living Room TV Back
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: back
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_home:
+  alias: Living Room TV Home
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: home
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_select:
+  alias: Living Room TV Select
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: select
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_right:
+  alias: Living Room TV Right
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: right
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_pause:
+  alias: Living Room TV Pause
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: pause
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_down:
+  alias: Living Room TV Down
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: down
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_options:
+  alias: Living Room TV Options
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: options
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_volume_up:
+  alias: Living Room TV Volume Up
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: volume_up
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_volume_down:
+  alias: Living Room TV Volume Down
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: volume_down
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_mute:
+  alias: Living Room TV Mute
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: mute
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_up:
+  alias: Living Room TV Up
+  sequence:
+  - service: remote.send_command
+    data:
+      device: LivingRoomTV
+      command: arrow_up
+    entity_id: remote.broadlink_remote
+  mode: single
+living_room_tv_nextflix:
+  alias: Living Room TV Netflix
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: Netflix
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_youtube_tv:
+  alias: Living Room TV YouTube TV
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: YouTube TV
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_youtube:
+  alias: Living Room TV YouTube
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: YouTube
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_antenna:
+  alias: Living Room TV Antenna
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: RV Antenna
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_hdmi:
+  alias: Living Room TV HDMI
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: MenTay
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_camera:
+  alias: Living Room TV Camera
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: IP Camera Viewer - Pro
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_siriusxm:
+  alias: Living Room TV SiriusXM
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: SiriusXM
+    entity_id: media_player.family_room_tv
+  mode: single
+living_room_tv_prime_video:
+  alias: Living Room TV Prime Video
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: Prime Video
+    entity_id: media_player.family_room_tv
+  mode: single
