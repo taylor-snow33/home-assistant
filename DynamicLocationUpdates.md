@@ -1,4 +1,5 @@
 # Dynamic Location Updates
+![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Location_Example.png?raw=true)
 Home Assistant uses it location for the following uses:
 * Local weather data
 * Setting a Home Location
