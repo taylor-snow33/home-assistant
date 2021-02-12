@@ -30,3 +30,27 @@ action:
     entity_id: script.set_location
 mode: single
 ```
+
+
+## Automating location udpates when traveling
+We tow our RV around behind our truck and move fairly often, so updating our location when moving around is handy for automations. 
+```
+alias: Set Location Travel Mode
+description: This sets the location based on my phone activity and SSID
+trigger:
+  - platform: state
+    entity_id: device_tracker.life360_taylor_snow
+    from: Driving
+    to: '*'
+condition:
+  - condition: state
+    entity_id: sensor.taylors_iphone_ssid
+    state: MenTay Escape
+    attribute: friendly_name
+action:
+  - service: script.set_location
+    data: {}
+mode: parallel
+max: 10
+```
+
