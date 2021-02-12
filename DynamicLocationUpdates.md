@@ -5,7 +5,17 @@ Home Assistant uses it location for the following uses:
 * Setting a Home Location
 * Building Home and Away modes
 
+## Getting a Dynamic Location
+Ideally I would have a dedicated GPS sensor on the RV, but time does not allow this. Using the devices and services already out there we can leverage pre-built Home Assistant integrations. 
+
+### Life 360
+[Life 360](https://www.home-assistant.io/integrations/life360/)This service has a decent free offering that we run on our phone. It updates location and provides more data far more frequently than the Home Assistant Mobile Apps. Follow [the Life360 integration guide](https://www.home-assistant.io/integrations/life360/) to get your phones location into Home Assistant. This can be tied to the User and Person object within Home Assistant.
+
+### Home Assistant Mobile App
+Home Asssitant builds their own [iOS, MacOS and Android apps]https://www.home-assistant.io/integrations/mobile_app/ to access your installation. Among many data points it provides, we can access the GPS latitude and longitude of the device. 
+
 ## Set Location Script
+Now that we have a GPS in the RV, we need to control when we update the location of Home Assistant. I started by building a script that is useful to create a manual update button, as well as automations. This is helpful so that your not constantly telling the system that its moving when your phone is moving, you want to be able to tell it where it is, only at certian times. 
 ```
 alias: Set Location
 sequence:
