@@ -1,25 +1,10 @@
-# home-assistant
-
-# header H1
-## header H2
-### header H3
-#### header H4
-##### header H5
-###### header H6
-
-## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
-
-
-# Dynamic Location Updating
-Home Assistant uses it location:
-
+# Dynamic Location Updates
+Home Assistant uses it location for the following uses:
+* Local weather data
+* Setting a Home Location
+* Building Home and Away modes
 
 ## Set Location Script
-
 ```
 alias: Set Location
 sequence:
@@ -30,7 +15,7 @@ sequence:
 mode: single
 ```
 ## Automating location udpates when sleeping
-Because we live in our RV full time, we assume that wherever we are sleeping at night, we are automating our location updates every night. 
+Because we live in our RV full time, we assume that wherever we are sleeping at night, we are automating our location updates every night. The example below is using the built in sunset sensor and an offset. This may not be the best approach for every
 ```
 alias: Set Location
 description: ''
