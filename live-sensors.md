@@ -1,5 +1,5 @@
 # Display Live Sensors Example
-![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Live-Sensors.png?raw=true)
+![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Live%20Sensors.png?raw=true)
 
 ## Vertical Stack Card Code
 Required Plugins
