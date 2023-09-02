@@ -1,8 +1,8 @@
 # Display Live Sensors Example
-![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Location_Example.png?raw=true)
-Home Assistant uses it location for the following uses:
+![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Live Sensors.png?raw=true)
 
-Vertical Stack Card Code
+## Vertical Stack Card Code
+Required Plugins
 
 ```
 type: vertical-stack
