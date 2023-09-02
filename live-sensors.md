@@ -2,13 +2,11 @@
 ![alt text](https://github.com/taylor-snow33/home-assistant/blob/main/Images/Live%20Sensors.png?raw=true)
 
 ## Vertical Stack Card Code
-Required Plugins
-
+Required front-end repositories
 * [Apex Charts](https://github.com/RomRider/apexcharts-card)
 * [Bar Card](https://github.com/custom-cards/bar-card)
 * [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
-* [Apex Charts](https://github.com/RomRider/apexcharts-card))
-
+* [Apex Charts](https://github.com/RomRider/apexcharts-card)
 
 ```
 type: vertical-stack
