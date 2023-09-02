@@ -6,7 +6,6 @@ Required front-end repositories
 * [Apex Charts](https://github.com/RomRider/apexcharts-card)
 * [Bar Card](https://github.com/custom-cards/bar-card)
 * [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
-* [Apex Charts](https://github.com/RomRider/apexcharts-card)
 
 ```
 type: vertical-stack
